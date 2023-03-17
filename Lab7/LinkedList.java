@@ -1,6 +1,5 @@
 package Lab7;
 
-import LinkedList.Node;
 
 public class LinkedList<T> {
 private class Node<T>{
