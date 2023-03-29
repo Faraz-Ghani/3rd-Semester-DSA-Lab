@@ -42,8 +42,9 @@ class BST{
 	public void displayhelper(nodee root) {
 		
 		if(root!=null) {
-			displayhelper(root.left);
 			System.out.println(root.data);
+			displayhelper(root.left);
+			
 			displayhelper(root.right);
 		}
 	}
@@ -86,6 +87,30 @@ class BST{
 		return root;
 	}
 	
+	public void find(int data) {
+			findhelper(data,root);
+	}
+	private nodee findhelper(int data,nodee root) {
+		
+	if(root==null) {
+		return root;
+	}
+	
+		if(data==root.data) {
+			System.out.println("Found");
+		}
+		else if(data>root.data) {
+
+			findhelper(data,root.right);
+		}
+		else if(data<root.data) {
+
+			findhelper(data,root.left);
+		}
+	
+		
+		return root;
+	}
 
 	private int findMax(nodee node) {
 	    while (node.right != null) {
@@ -106,7 +131,9 @@ public class BSTtut {
 		bt.insert(9);
 		bt.insert(8);
 		bt.insert(1);
+		bt.find(8);
 
+//		System.out.println(bt.find(1));
 		bt.display();
 		System.out.println("dsa");
 		bt.remove(9);
