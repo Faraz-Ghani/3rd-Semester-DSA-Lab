@@ -90,14 +90,17 @@ class BST{
 	public void find(int data) {
 			findhelper(data,root);
 	}
+	
 	private nodee findhelper(int data,nodee root) {
 		
-	if(root==null) {
-		return root;
-	}
+		if(root==null) {
+			System.out.println("not found");
+			return root;
+		}
 	
 		if(data==root.data) {
 			System.out.println("Found");
+			return null;
 		}
 		else if(data>root.data) {
 
@@ -131,7 +134,7 @@ public class BSTtut {
 		bt.insert(9);
 		bt.insert(8);
 		bt.insert(1);
-		bt.find(8);
+		bt.find(7);
 
 //		System.out.println(bt.find(1));
 		bt.display();
