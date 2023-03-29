@@ -235,7 +235,7 @@ class LLQueue{
 
 }
 
-public class queeuarr {
+public class LinkedQueue {
 
 	public static void main(String[] args) {
 		//Array Queue
