@@ -83,9 +83,18 @@ class Hashtable{
         // Calculate the hash of the key
         int index= Hash(key);
         
+        //  return ((h + i) % entries.length + entries.length) % entries.length; // Linear Probing
+        //  return (h + i*i)%entries.length;  // Quadratic Probing
+
+        
         // Loop through the keys to find the correct index for the key
-        while(keys[index]!=0 && keys[index]!=key) {
-            index=index+1% capacity;
+        for(int i =1 ;keys[index]!=0 && keys[index]!=key;i++ ) 
+        {
+        //linear
+        	index=index+1% capacity;
+            
+        //quadirtic
+        //    index=index+1*i % capacity;
         }
         
         // If the key is not already in the hashtable, increase the size
@@ -136,7 +145,7 @@ public class HashTableTut{
         Hashtable ht = new Hashtable(20); //create a new hash table with a capacity of 20
         ht.put(19, "Hashim"); //add key-value pairs to the hash table
         ht.put(109, "Aashish");
-        ht.put(9, "Ayush");
+        ht.put(9, "Ayush(collision)");
         ht.put(3, "Daniyal");
         ht.put(81, "Faraz");
         System.out.println(ht.containskey(109)); //check if the hash table contains a key

@@ -1,9 +1,9 @@
 package dsa;
 
-class Nodee{
+class nodeee{
 	int data;
-	Nodee next;
-	public Nodee(int data) {
+	nodeee next;
+	public nodeee(int data) {
 		super();
 		this.data = data;
 		this.next = null;
@@ -12,7 +12,7 @@ class Nodee{
 }
 
 class stack {
-	Nodee top;
+	nodeee top;
 	int size;
 	
 	public stack() {
@@ -20,7 +20,7 @@ class stack {
 		size = 0;
 	}
 	public void push ( int data ) {
-		Nodee node = new Nodee(data);
+		nodeee node = new nodeee(data);
 		node.next=top;
 		top = node;
 		size++;
@@ -54,22 +54,56 @@ class stack {
 	}
 	
 	
+	public stack reverse() {
+		stack stack2 = new stack();
+		int Size = size;
+		for(int i =0 ;i <Size;i++) {
+			stack2.push(this.pop());			
+		}
+
+		return stack2;
+	}
+	
+	@Override
+	public String toString() {
+		String str = "[";
+		stack temp = new stack();
+		temp.top=this.top;
+		int Size = size;
+		for(int i =0 ; i<Size;i++) {
+			str=str+" "+temp.pop();
+		}
+		str=str+" ]";
+		return str;
+	}
+	
 }
 
 public class LinkedStack {
 
 	public static void main(String[] args) {
 		stack stck = new stack();
-		System.out.println(stck.isempty());
+		stack stck2 = new stack();
+//		System.out.println(stck.isempty());
 		stck.push(5);
 		stck.push(3);
 		stck.push(7);
 		stck.push(10);
-		System.out.println(stck.isempty());
-		System.out.println(stck.pop());
-		System.out.println(stck.size);
-		System.out.println(stck.pop());
+//		System.out.println(stck.isempty());
+//		System.out.println(stck.pop());
+//		System.out.println(stck.size);
+//		System.out.println(stck.pop());
+//		
 		
+//		System.out.println(stck.pop());
+//		System.out.println(stck.pop());
+//		System.out.println(stck.pop());
+//		System.out.println(stck.pop());
+		System.out.println(stck);
+		System.out.println("after reverse");
+		stck= stck.reverse();
+		System.out.println(stck);
+
 	}
 
 }
