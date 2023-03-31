@@ -122,6 +122,32 @@ class BST{
 	    return node.data;
 	}
 	
+	public int height() {
+		return heighthelper(root)-1;
+	}
+	public int heighthelper(nodee root) {
+		if(root==null) {
+			return 0;
+		}
+		else {
+			int ldepth;
+			int rdepth;
+			ldepth=heighthelper(root.left);
+			rdepth=heighthelper(root.right);
+			
+			if(ldepth>rdepth) {
+				return ldepth+1;
+			}
+			else if(ldepth<rdepth) {
+				return rdepth+1;
+			}
+			else {
+				return ldepth+1;	
+			}
+			
+		}
+		
+	}
 	
 }
 
@@ -135,7 +161,7 @@ public class BSTtut {
 		bt.insert(8);
 		bt.insert(1);
 		bt.find(7);
-
+System.out.println(bt.height());
 //		System.out.println(bt.find(1));
 		bt.display();
 		System.out.println("dsa");

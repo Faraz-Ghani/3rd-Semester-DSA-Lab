@@ -25,6 +25,20 @@ class stack {
 		top = node;
 		size++;
 	}
+	
+	public void pushinmid(int data) {
+		int i=0;
+		nodeee newnode = new nodeee(data);
+		nodeee temp = this.top;
+		while(i+1<size/2) {
+			temp=temp.next;
+			i++;
+		}
+		newnode.next=temp.next;
+		temp.next=newnode;
+		size++;
+	}
+	
 	public int pop () {
 		if(isempty()) {
 			return -1;
@@ -100,9 +114,12 @@ public class LinkedStack {
 //		System.out.println(stck.pop());
 //		System.out.println(stck.pop());
 		System.out.println(stck);
-		System.out.println("after reverse");
-		stck= stck.reverse();
+		stck.pushinmid(2);
 		System.out.println(stck);
+		
+		//		System.out.println("after reverse");
+//		stck= stck.reverse();
+//		System.out.println(stck);
 
 	}
 
